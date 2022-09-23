@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/style.css">
+    <title>GABOW</title>
+</head>
+<body>
+    <div class="contenedorMenu">
+        <!-- menu encabezado-->
+        <header class="header">
+            <div class="container">
+                <div class="btn-menu">
+                    <label for="btn-menu">☰</label>
+                </div>
+                <div class="logo">
+                    <h1>GABOW</h1>
+                </div>
+                <nav class="menu">
+                    <!-- <a href="#">Contacto</a> -->
+                    <a href="Registro.html">Iniciar Sesion</a>
+                </nav>
+            </div>
+        </header>
+        <!-- menu  -->
+        <input type="checkbox" id="btn-menu">
+        <div class="container-menu">
+            <div class="cont-menu">
+                <nav>
+                    <a href="index.html">Inicio</a>
+                    <a href="mapa.html">Mapa</a>
+                    <a href="ruta.html">Ruta</a>
+                    <a href="mapas.html">Lista de mapas</a>
+                    <!-- <a href="#" onclick="fav()">Favoritos</a> -->
+                    <!-- <a href="#">?</a>
+                    <a href="#">?</a> -->
+                </nav>
+                <label for="btn-menu">✖️</label>
+            </div>
+        </div>
+    </div>
+    <div class="contenido">
+        <div class="ruta">
+            <div class="jumbotron">
+                <h1>Ruta:</h1>
+            <h1>Cinepolis</h1>      
+            <p>Origen: Primer piso</p>
+            <p>Lugar: Town Center El Rosario</p>
+            <button type="button" class="btn btn-primary">Modificar Destino</button>
+            <button type="button" class="btn btn-info">Finalizar Ruta</button>
+        </div>
+        <div class="col-sm-4">
+            <h2>Instrucciones</h2>
+            <div class="well">Continua Derecho</div>
+            <div class="well">Gira a la derecha</div>
+            <div class="well">Avanza 100m</div>
+        </div>
+        <div class="col-sm-8"></div>
+        <h2>Descripcion</h2>
+        <div class="panel-panel-default">
+            <div class="panel-heading">¡Agregar una descripcion!</div>
+            <div class="panel-body">
+            <div class="form-group">
+                <label for="comment"></label>
+                    <textarea class="form-control" rows="5" id="comment"></textarea>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    <div class="pies">
+        <footer>
+            <label>TERMINO Y CONDICIONES</label>
+        </footer>
+    </div>
+    <iframe class="ifanima" src="animacion.html" frameborder="0"></iframe>
+    <script src="js/funciones.js"></script>
+</body>
+</html>
