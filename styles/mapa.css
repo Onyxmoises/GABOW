@@ -1,0 +1,53 @@
+rect[name=aula]:hover{
+    fill: aqua;
+}
+.main{
+    display: grid;
+    justify-content: center;
+    border: 1px solid black;
+    height: 700px;
+    width: 100%;
+}
+#title{
+    height:80px;
+    width: 100%;
+}
+#button{
+    visibility: hidden;
+    height: 100px;
+}
+.IniciarRutabutton{
+    font-size: 20px;
+    width: 100%;
+}
+.inputDiv{
+    width: 100%;
+    display: inline-flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+input{
+    width: 85%;
+    font-size: 20px;
+}
+.searchButton{
+    width: 15%;
+}
+.resaltado{
+    fill: aqua;
+}
+svg{
+    border: 1px solid black;
+    height: 600px;
+    width: 1000px;
+}
+.content{
+    border: 1px solid black;
+    text-align: center;
+    width: 100%;
+}
+.mainContent{
+    display: grid;
+    border: 1px solid black;
+    justify-content: center;
+}
