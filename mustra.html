@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/style.css">
+
+    <!--FONT AWESOME-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <!--GOOGLE FONTS-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Play&display=swap" rel="stylesheet">
+
+    <title>GABOW</title>
+</head>
+<body>
+    <div class="contenido">
+        <div class="menu">
+            <div class="hero">
+                <nav class="nav container" id="nav">
+                    <h2 class="nav-logo">GABOW</h2>
+                    <ul class="nav-links">
+                        <li class="nav-item">
+                            <a href="index.html" class="nav-link">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="mapa.html" class="nav-link">Mapas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="ruta.html" class="nav-link">Ruta</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="favoritos.html" class="nav-link">Favoritos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="registro.html" class="nav-link">Iniciar Sesion</a>
+                        </li>
+                    </ul>
+                    <a href="#nav" class="nav-ham">
+                        <img src="./assets/menu.svg" class="nav-icon">
+                    </a>
+                    <a href="#" class="nav-close">
+                        <img src="./assets/close.svg" class="nav-icon">
+                    </a>
+                </nav>
+                <div class="containerMap">
+                    <div>
+                        <style>
+                            rect[name=aula]:hover{
+                                fill: aqua;
+                            }
+                            .main{
+                                display: grid;
+                                justify-content: center;
+                                border: 1px solid black;
+                                /* height: 700px; */
+                                /* width: 100%; */
+                            }
+                            #title{
+                                /* height:80px; */
+                                /* width: 100%; */
+                            }
+                            #button{
+                                visibility: hidden;
+                                /* height: 100px; */
+                            }
+                            .IniciarRutabutton{
+                                font-size: 20px;
+                                width: 100%;
+                            }
+                            .inputDiv{
+                                width: 100%;
+                                display: inline-flex;
+                                justify-content: center;
+                                margin-bottom: 20px;
+                            }
+                            input{
+                                width: 85%;
+                                font-size: 20px;
+                            }
+                            .searchButton{
+                                /* width: 15%; */
+                            }
+                            .resaltado{
+                                fill: aqua;
+                            }
+                            svg{
+                                border: 1px solid black;
+                                height: 100%;
+                                width: 700px;
+                            }
+                            .content{
+                                border: 1px solid black;
+                                text-align: center;
+                                width: 100%;
+                            }
+                            .mainContent{
+                                display: grid;
+                                /* border: 1px solid black; */
+                                justify-content: center;
+                            }
+                            a{
+                                color: white;
+                                text-decoration: none;
+                            }
+                        </style>
+                        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+                        <script>
+                            const validarBusqueda=(busqueda)=>{
+                                const options=document.getElementById("aulas").options;
+                                for(i of options){
+                                    if(i.value==busqueda){
+                                        return true;
+                                    }
+                                }
+                                return false;
+                            }
+                            const redirigir=()=>{
+                                const busqueda=document.getElementById("search").value;
+                                if(!validarBusqueda(busqueda)){
+                                    Swal.fire({
+                                        title:'Error',
+                                        text: 'Has introducido una busqueda invalida. Revisa la entrada'
+                                    });
+                                }else{
+                                    window.location.assign(`mapa.html?location=${busqueda}`);
+                                }
+                            }
+                            const mostrar=(id)=>{
+                                document.querySelector("#title").innerHTML=`<h2>${id}</h2>`;
+                                document.getElementById("button").style.visibility="visible"
+                            }
+                            const removerResaltado=()=>{
+                                try{
+                                    document.getElementsByClassName("resaltado")[0].removeAttribute("class");
+                                }catch(error){}
+                            }
+                            window.onload=()=>{
+                                let opt="";
+                                const datalist=document.getElementById("aulas");
+                                document.getElementsByName("aula").forEach((element)=>{
+                                    element.setAttribute("onclick","mostrar(id)");
+                                    opt+=`<option value="${element.id}">`;
+                                });
+                                datalist.innerHTML=opt;
+                                const valores = window.location.search;
+                                if(!valores==""){
+                                    const enlace=document.createElement("A");
+                                    enlace.setAttribute("href","mapa.html");
+                                    enlace.innerHTML="Regresar a Principal";
+                                    document.body.appendChild(enlace)
+                                    const urlParams = new URLSearchParams(valores);
+                                    const location = urlParams.get('location');
+                                    const element=document.getElementById(location);
+                                    element.setAttribute("class","resaltado");
+                                    element.onclick();
+                                    document.getElementsByName("aula").forEach((element)=>{
+                                        element.setAttribute("onclick","removerResaltado(),mostrar(id)");
+                                    });
+                                }
+                            }
+                        </script>
+                                <div class="inputDiv">
+                                    <input list="aulas" id="search" placeholder="Buscar...">
+                                    <button class="searchButton" onclick="redirigir()">Buscar</button>
+                                    <datalist id="aulas"></datalist>
+                                </div>
+                        <div class="main">
+                                <svg id="eqXo87N13f91" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1920 1080" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" style="background-color:transparent">
+                                    <!--RECTANGULOS PRINCIPALES-->
+                                    <rect width="1920" height="360" rx="0" ry="0" fill="#eae8e8" stroke="#000"></rect>
+                                    <rect width="1920" height="360" rx="0" ry="0" transform="translate(0 720)" fill="#eae8e8" stroke="#000"></rect>
+                                    <rect width="1920" height="360" rx="0" ry="0" transform="matrix(.604008 0 0 1 431.856931 359.999999)" fill="#eae8e8" stroke="#000"></rect>
+                                    <!--RECTANGULOS SALONES-->
+                                    <rect name="aula" id="Salon 7" width="213.3" height="180" rx="0" ry="0" fill="#a5a7aa" stroke="#000"></rect>
+                                    <rect name="aula" id="Salon 6" width="213.3" height="180" rx="0" ry="0" transform="translate(213.3 0)" fill="#a5a7aa" stroke="#000"></rect>
+                                    <rect name="aula" id="Salon 5" width="213.3" height="180" rx="0" ry="0" transform="translate(426.6 0)" fill="#a5a7aa" stroke="#000"></rect>
+                                    <rect name="aula" id="Salon 4" width="213.3" height="180" rx="0" ry="0" transform="translate(639.9 0)" fill="#a5a7aa" stroke="#000"></rect>
+                                    <rect name="aula" id="Salon 3" width="213.3" height="180" rx="0" ry="0" transform="translate(853.35 0)" fill="#a5a7aa" stroke="#000"></rect>
+                                    <rect name="aula" id="Bodega" width="213.3" height="180" rx="0" ry="0" transform="matrix(.460864 0 0 1 1066.65 0)" fill="#a5a7aa" stroke="#000"></rect>
+                                    <rect name="aula" id="Coordinacion" width="213.3" height="180" rx="0" ry="0" transform="matrix(.460864 0 0 1 533.24998 720)" fill="#a5a7aa" stroke="#000"></rect>
+                                    <rect name="aula" id="Asesoria" width="213.3" height="180" rx="0" ry="0" transform="matrix(.460864 0 0 1 1591.602331 720)" fill="#a5a7aa" stroke="#000"></rect>
+                                    <rect name="aula" id="Cubiculo" width="213.3" height="180" rx="0" ry="0" transform="matrix(.460864 0 0 1 1173.3 720)" fill="#a5a7aa" stroke="#000"></rect>
+                                    <rect name="aula" id="Salon 2" width="213.3" height="180" rx="0" ry="0" transform="translate(1164.952291 0)" fill="#a5a7aa" stroke="#000"></rect>
+                                    <rect name="aula" id="Salon 1" width="213.3" height="180" rx="0" ry="0" transform="translate(1378.252291 0)" fill="#a5a7aa" stroke="#000"></rect>
+                                    <rect name="aula" id="Dibujo I" width="217.391736" height="181.990521" rx="0" ry="0" transform="matrix(1.511557 0 0 1.978125 1591.552291 0)" fill="#a5a7aa" stroke="#000"></rect>
+                                    <rect name="aula" id="Salon Profesores" width="213.3" height="360" rx="0" ry="0" transform="translate(0 720)" fill="#a5a7aa" stroke="#000"></rect>
+                                    <rect name="aula" id="Lab. Quimica I" width="180" height="360" rx="0" ry="0" transform="matrix(0 1-.888889 0 533.24998 720)" fill="#a5a7aa" stroke="#000"></rect>
+                                    <rect name="aula" id="Lab. Fisica I y II" width="180" height="360" rx="0" ry="0" transform="matrix(0 1-.888889 0 1591.602331 720)" fill="#a5a7aa" stroke="#000"></rect>
+                                    <rect name="aula" id="Lab. Quimica II" width="180" height="360" rx="0" ry="0" transform="matrix(0 1-1.142093 0 1042.705751 720)" fill="#a5a7aa" stroke="#000"></rect>
+                                    <rect name="aula" id="Lab. Fisica III y IV" width="230.095378" height="360" rx="0" ry="0" transform="translate(1689.904622 720)" fill="#a5a7aa" stroke="#000"></rect>
+                                    <rect name="aula" id="Baños Mujeres" width="273.4" height="360" rx="0" ry="0" transform="translate(431.856931 360)" fill="#d2dbed" stroke-width="0"></rect>
+                                    <rect name="aula" id="Baños Hombres" width="273.4" height="360" rx="0" ry="0" transform="translate(1318.202331 359.999999)" fill="#d2dbed" stroke-width="0"></rect>
+                                    <!--TEXTOS-->
+                                    <!--<text dx="0" dy="0" font-family="&quot;eqXo87N13f91:::Roboto&quot;" font-size="75" font-weight="400" transform="matrix(.770246 0 0 0.617739 34.405859 83.19684)" opacity="0.55" stroke-width="0"><tspan y="0" font-weight="400" stroke-width="0">
+                                    Salon
+                                    </tspan><tspan x="0" y="75" font-weight="400" stroke-width="0">
+                                    &nbsp; &nbsp;7
+                                    </tspan></text><text dx="0" dy="0" font-family="&quot;eqXo87N13f91:::Roboto&quot;" font-size="75" font-weight="400" transform="matrix(.770246 0 0 0.617739 247.705859 83.19684)" opacity="0.55" stroke-width="0"><tspan y="0" font-weight="400" stroke-width="0">
+                                    Salon
+                                    </tspan><tspan x="0" y="75" font-weight="400" stroke-width="0">
+                                    &nbsp; &nbsp;6
+                                    </tspan></text><text dx="0" dy="0" font-family="&quot;eqXo87N13f91:::Roboto&quot;" font-size="75" font-weight="400" transform="matrix(.770246 0 0 0.617739 461.005859 83.19684)" opacity="0.55" stroke-width="0"><tspan y="0" font-weight="400" stroke-width="0">
+                                    Salon
+                                    </tspan><tspan x="0" y="75" font-weight="400" stroke-width="0">
+                                    &nbsp; &nbsp;5
+                                    </tspan></text><text dx="0" dy="0" font-family="&quot;eqXo87N13f91:::Roboto&quot;" font-size="75" font-weight="400" transform="matrix(.770246 0 0 0.617739 674.305859 83.19684)" opacity="0.55" stroke-width="0"><tspan y="0" font-weight="400" stroke-width="0">
+                                    Salon
+                                    </tspan><tspan x="0" y="75" font-weight="400" stroke-width="0">
+                                    &nbsp; &nbsp;4
+                                    </tspan></text><text dx="0" dy="0" font-family="&quot;eqXo87N13f91:::Roboto&quot;" font-size="75" font-weight="400" transform="matrix(.770246 0 0 0.617739 887.755859 83.19684)" opacity="0.55" stroke-width="0"><tspan y="0" font-weight="400" stroke-width="0">
+                                    Salon
+                                    </tspan><tspan x="0" y="75" font-weight="400" stroke-width="0">
+                                    &nbsp; &nbsp;3
+                                    </tspan></text><text dx="0" dy="0" font-family="&quot;eqXo87N13f91:::Roboto&quot;" font-size="75" font-weight="400" transform="matrix(0-.539063 0.631555 0 1131.504978 158.576145)" opacity="0.55" stroke-width="0"><tspan y="0" font-weight="400" stroke-width="0">
+                                    Bodega 
+                                    </tspan></text><text dx="0" dy="0" font-family="&quot;eqXo87N13f91:::Roboto&quot;" font-size="75" font-weight="400" transform="matrix(.770246 0 0 0.617739 1199.35815 83.19684)" opacity="0.55" stroke-width="0"><tspan y="0" font-weight="400" stroke-width="0">
+                                    Salon
+                                    </tspan><tspan x="0" y="75" font-weight="400" stroke-width="0">
+                                    &nbsp; &nbsp;2
+                                    </tspan></text><text dx="0" dy="0" font-family="&quot;eqXo87N13f91:::Roboto&quot;" font-size="75" font-weight="400" transform="matrix(.770246 0 0 0.617739 1412.65815 83.19684)" opacity="0.55" stroke-width="0"><tspan y="0" font-weight="400" stroke-width="0">
+                                    Salon
+                                    </tspan><tspan x="0" y="75" font-weight="400" stroke-width="0">
+                                    &nbsp; &nbsp;1
+                                    </tspan></text><text dx="0" dy="0" font-family="&quot;eqXo87N13f91:::Roboto&quot;" font-size="75" font-weight="400" transform="matrix(.770246 0 0 0.617739 1674.430827 173.19684)" opacity="0.55" stroke-width="0"><tspan y="0" font-weight="400" stroke-width="0">
+                                    Dibujo
+                                    </tspan><tspan x="0" y="75" font-weight="400" stroke-width="0">
+                                    &nbsp; &nbsp; I &nbsp;
+                                    </tspan></text>
+                                        
+                                        <text dx="0" dy="0" font-family="&quot;eqXo87N13f91:::Roboto&quot;" font-size="75" font-weight="400" transform="matrix(0-.739592 0.716759 0 98.127933 1025.463749)" opacity="0.55" stroke-width="0"><tspan y="0" font-weight="400" stroke-width="0">
+                                    Salon de
+                                    </tspan><tspan x="0" y="75" font-weight="400" stroke-width="0">
+                                    profesores
+                                    </tspan><tspan x="0" y="225" font-weight="400" stroke-width="0">
+                                    
+                                    </tspan></text><text dx="0" dy="0" font-family="&quot;eqXo87N13f91:::Roboto&quot;" font-size="75" font-weight="400" transform="matrix(0-.297894 0.779881 0 602.934642 876.02229)" opacity="0.55" stroke-width="0"><tspan y="0" font-weight="400" stroke-width="0">
+                                    Coordinacion
+                                    </tspan></text><text dx="0" dy="0" font-family="&quot;eqXo87N13f91:::Roboto&quot;" font-size="75" font-weight="400" transform="matrix(0-.402044 0.779881 0 1241.988313 868.699682)" opacity="0.55" stroke-width="0"><tspan y="0" font-weight="400" stroke-width="0">
+                                    Cubiculo
+                                    </tspan></text><text dx="0" dy="0" font-family="&quot;eqXo87N13f91:::Roboto&quot;" font-size="75" font-weight="400" transform="matrix(0-.402044 0.779881 0 1660.290644 868.699682)" opacity="0.55" stroke-width="0"><tspan y="0" font-weight="400" stroke-width="0">
+                                    Asesoría 
+                                    </tspan></text><text dx="0" dy="0" font-family="&quot;eqXo87N13f91:::Roboto&quot;" font-size="75" font-weight="400" transform="matrix(.546842 0 0 0.658625 243.253211 828.038681)" opacity="0.55" stroke-width="0"><tspan y="0" font-weight="400" stroke-width="0">
+                                    Lab. Quimica I 
+                                    </tspan></text><text dx="0" dy="0" font-family="&quot;eqXo87N13f91:::Roboto&quot;" font-size="75" font-weight="400" transform="matrix(.546842 0 0 0.658625 700.006501 828.749316)" opacity="0.55" stroke-width="0"><tspan y="0" font-weight="400" stroke-width="0">
+                                    Lab. Quimica I I
+                                    </tspan></text><text dx="0" dy="0" font-family="&quot;eqXo87N13f91:::Roboto&quot;" font-size="75" font-weight="400" transform="matrix(.546842 0 0 0.658625 1292.054726 828.038681)" opacity="0.55" stroke-width="0"><tspan y="0" font-weight="400" stroke-width="0">
+                                    Lab. Fisica I y II
+                                    </tspan></text><text dx="0" dy="0" font-family="&quot;eqXo87N13f91:::Roboto&quot;" font-size="75" font-weight="400" transform="matrix(0-.546842 0.658625 0 1822.990991 1058.21597)" opacity="0.55" stroke-width="0"><tspan y="0" font-weight="400" stroke-width="0">
+                                    Lab. Fisica III y IV
+                                    </tspan></text>-->
+                                        
+                                        <path d="" fill="none" stroke="#3f5787" stroke-width="3.84"></path><path d="" fill="none" stroke="#3f5787" stroke-width="3.84"></path><path d="M426.6,719.999999L0,720l1042.705751-.000001" transform="translate(.000001 0.000002)" fill="none" stroke="#3f5787" stroke-width="3.84"></path><path d="M1920.152291,-0.000001v359.999999h-328.54996l-.05004,360l328.6.000001v360.000002l-1920.15229.000001v-360.000001l431.85693-.000002v-359.999997" transform="translate(0 0.000001)" fill="none" stroke="#000" stroke-width="3.84"></path><path d="M853.2,360.000003l320.1-.000001v239.999999" transform="translate(0 0.000001)" fill="none" stroke="#eae8e8" stroke-width="3.84"></path><path d="M705.256931,539.999999h147.943069v180.000003" transform="translate(0 0.000001)" fill="none" stroke="#3f5787" stroke-width="3.84"></path><path d="" fill="none" stroke="#3f5787" stroke-width="3.84"></path><path d="M705.256931,359.999999v360" fill="none" stroke="#3f5787" stroke-width="3.84"></path><path d="M705.256931,359.999999v360" transform="translate(14.847104 0)" fill="none" stroke="#3f5787" stroke-width="3.84"></path><path d="M705.256931,359.999999v360" transform="translate(35.08538 0)" fill="none" stroke="#3f5787" stroke-width="3.84"></path><path d="M705.256931,359.999999v360" transform="translate(54.556201 0)" fill="none" stroke="#3f5787" stroke-width="3.84"></path><path d="M705.256931,359.999999v360" transform="translate(73.971535 0)" fill="none" stroke="#3f5787" stroke-width="3.84"></path><path d="M705.256931,359.999999v360" transform="translate(94.773946 0)" fill="none" stroke="#3f5787" stroke-width="3.84"></path><path d="M705.256931,359.999999v360" transform="translate(115.087929 0)" fill="none" stroke="#3f5787" stroke-width="3.84"></path><path d="M705.256931,359.999999v360" transform="translate(131.87208 0)" fill="none" stroke="#3f5787" stroke-width="3.84"></path><path d="M705.256931,359.999999v360" transform="translate(147.943069 0)" fill="none" stroke="#3f5787" stroke-width="3.84"></path><path d="M705.256931,359.999999v360" transform="translate(612.9454 0.000004)" fill="none" stroke="#3f5787" stroke-width="3.84"></path><path d="M705.256931,359.999999v360" transform="translate(595.164178 0.000004)" fill="none" stroke="#3f5787" stroke-width="3.84"></path><path d="M705.256931,359.999999v360" transform="translate(574.713872 0.000004)" fill="none" stroke="#3f5787" stroke-width="3.84"></path><path d="M705.256931,359.999999v360" transform="translate(555.014946 0.000004)" fill="none" stroke="#3f5787" stroke-width="3.84"></path><path d="M1318.202331,540.000003l-57.930454-.000004" fill="none" stroke="#3f5787" stroke-width="3.84"></path>
+                                        <!--<text dx="0" dy="0" font-family="&quot;eqXo87N13f91:::Roboto&quot;" font-size="75" font-weight="400" transform="matrix(.688199 0 0 0.97697 476.49596 528.481217)" opacity="0.5" stroke-width="0"><tspan y="0" font-weight="400" stroke-width="0">
+                                    Baños
+                                    </tspan><tspan x="0" y="75" font-weight="400" stroke-width="0">
+                                    Mujeres 
+                                    </tspan></text><text dx="0" dy="0" font-family="&quot;eqXo87N13f91:::Roboto&quot;" font-size="75" font-weight="400" transform="matrix(.688199 0 0 0.97697 1362.84136 528.481212)" opacity="0.5" stroke-width="0"><tspan y="0" font-weight="400" stroke-width="0">
+                                    Baños
+                                    </tspan><tspan x="0" y="75" font-weight="400" stroke-width="0">
+                                    Hombres
+                                    </tspan><tspan x="0" y="225" font-weight="400" stroke-width="0">
+                                    -->
+                                    </tspan></text><path d="M1173.3,360.000004L1173.3,720" fill="none" stroke="#3f5787" stroke-width="3.84"></path><path d="M1173.3,570v150.000003" transform="translate(0 0.000001)" fill="none" stroke="#eae8e8" stroke-width="3.84"></path><path d="M0.000002,0.000001L0,359.999999L431.856932,360h-431.85693L0.000001,0.000001" transform="translate(0 0.000001)" fill="none" stroke="#3f5787" stroke-width="3.84"></path>
+                                    <style>
+                                        @font-face {font-family: 'eqXo87N13f91:::Roboto';
+                                        font-style: normal;
+                                        font-weight: 400;
+                                        src: url(data:font/ttf;charset=utf-8;base64,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) format('truetype');}
+                                    </style>
+                                </svg>
+                        </div>
+                        <div class="mainContent">
+                            <div class="content">
+                                <div id="title"></div>
+                                <div id="button"><button class="IniciarRutabutton"><a href="ruta.html">Iniciar Ruta</a></button></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pies">
+            <footer>
+                <div class="footer">
+                    <div class="row">
+                        <a target="_blank" href="prox.html"><i class="fa fa-facebook"></i></a>
+                        <a target="_blank" href="prox.html"><i class="fa fa-instagram"></i></a>
+                        <a target="_blank" href="prox.html"><i class="fa fa-twitter"></i></a>
+                    </div>
+        
+                    <div class="row">
+                        <ul>
+                            <li><a href="contacto.html">Contactanos</a></li>
+                            <li><a href="terminos.html">Terminos y Condiciones</a></li>
+                        </ul>
+                    </div>        
+                    <div class="row">
+                        GABOW Copyright © 2022 - All rights reserved || Designed By: Moises
+                    </div>
+                </div>
+            </footer>
+                </div>
+            </div>
+        </div>
+        <div class="animacion">
+            <div class="animation-area">
+                <ul class="box-area">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

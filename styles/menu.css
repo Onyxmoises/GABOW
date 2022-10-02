@@ -1,123 +1,98 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat|Montserrat+Alternates|Poppins&display=swap');
 *{
     margin: 0;
-    padding: 0;
     box-sizing: border-box;
-    font-family: 'Montserrat Alternates', sans-serif;
-}
-html{
-    height: 100%;
-}
-body{
-    min-height: 100%;
-    display: flex;
-    flex-direction: column;
-}
-.header{
-    width: 100%;
-    top: 0;
-    left: 0;
 }
 .container{
+    margin: 0 auto;
     width: 90%;
     max-width: 1200px;
-    margin: auto;
+    overflow: hidden;
 }
-.container .btn-menu, .logo{
-    float: left;
-    line-height:100px;
-}
-.container .btn-menu label{
-    color: #fff;
-    font-size: 25px;
-    cursor: pointer;
-}
-.logo h1{
-    color: #fff;
-    font-weight: 400;
-    font-size: 22px;
-    margin-left: 10px;
-}
-.container .menu{
-    float: right;
-    line-height: 100px;
-}
-.container .menu a{
-    display: inline-block;
-    padding: 15px;
-    line-height: normal;
-    text-decoration: none;
-    color: #fff;
-    transition: all 0.3s ease;
-    border-bottom: 2px solid transparent;
-    font-size: 15px;
-    margin-right: 5px;
-}
-.container .menu a:hover{
-    border-bottom: 2px solid #c7c7c7;
-    padding-bottom: 5px;
-}
-/* fin menu encabezado */
-
-/* menu lateral */
-#btn-menu{
-    display: none;
-}
-.container-menu{
-    position: absolute;
-    background: rgba(0,0,0,0.5);
-    width: 100%;
+.hero{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('./assets/hero.jpg');
+    background-size: cover;
+    min-height: 500px;
     height: 100vh;
-    top: 0;left: 0;
-    transition: all 500ms ease;
-    opacity: 0;
-    visibility: hidden;
+    color: white;
 }
-#btn-menu:checked ~ .container-menu{
-    opacity: 1;
-    visibility: visible;
+.nav{
+    --satate-close: scale(0);
+    --satate-ham: scale(1);
+    --satate-menu: translate(-100%);
+    padding: 40px 0;
+    display: grid;
+    justify-content: space-between;
+    align-items: center;
+    grid-template-columns: repeat(2, max-content);
 }
-.cont-menu{
-    width: 100%;
-    max-width: 250px;
-    background: #1c1c1c;
-    height: 100vh;
-    position: relative;
-    transition: all 500ms ease;
-    transform: translateX(-100%);
+.nav:target{
+    --satate-menu: translate(0);
+    --satate-close: scale(1);
+    --satate-ham: scale(0);
 }
-#btn-menu:checked ~ .container-menu .cont-menu{
-    transform: translateX(0%);
+.nav-logo{
+    font-size: 2.5rem;
+    z-index: 1;
 }
-.cont-menu nav{
-    transform: translateY(15%);
-}
-.cont-menu nav a{
-    display: block;
-    text-decoration: none;
-    padding: 20px;
-    color: #c7c7c7;
-    border-left: 5px solid transparent;
-    transition: all 400ms ease;
-}
-.cont-menu nav a:hover{
-    border-left: 5px solid #c7c7c7;
-    background: #1f1f1f;
-}
-.cont-menu label{
-    position: absolute;
-    right: 5px;
-    top: 10px;
-    color: #fff;
+.nav-ham, .nav-close{
     cursor: pointer;
-    font-size: 18px;
+    grid-column: -2/-1;
+    grid-row: 1/2;
+    transition: .4s transform;
 }
-/* fin menu lateral */
-
-footer{
-    height: 80px;
-    background-color: #000000;
-    color: #fff;
-    display: flex;
-    justify-content: center;
+.nav-ham{
+    transform: var(--satate-ham);
+}
+.nav-close{
+    transform: var(--satate-close);
+}
+.nav-icon{
+    width: 40px;
+}
+.nav-links{
+    background-color: black;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0;
+    display: grid;
+    align-content: center;
+    gap: 2em;
+    padding-left: 5%;
+    transform: var(--satate-menu);
+    transition: .3s transform;
+}
+.nav-item{
+    list-style: none;
+}
+.nav-link{
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+}
+@media (min-width:768px){
+    .nav{
+        --satate-ham: scale(0);
+        --satate-menu: translate(0);
+    }
+    .nav:target{
+        --satate-close: scale(0);
+    }
+    .nav-links{
+        padding: 0;
+        background-color: unset;
+        position: unset;
+        gap: 1.5em;
+        grid-auto-flow: column;
+        transform: unset;
+        grid-column: -2/-1;
+        grid-row: 1/2;
+    }
+    .nav-link{
+        font-size: 1rem;
+        letter-spacing: none;
+    }
 }

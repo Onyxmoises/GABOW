@@ -5,116 +5,154 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/style.css">
+
+    <!--FONT AWESOME-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <!--GOOGLE FONTS-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Play&display=swap" rel="stylesheet">
+
     <title>GABOW</title>
 </head>
 <body>
-    <div class="contenedorMenu">
-        <!-- menu encabezado-->
-        <header class="header">
-            <div class="container">
-                <div class="btn-menu">
-                    <label for="btn-menu">☰</label>
-                </div>
-                <div class="logo">
-                    <h1>GABOW</h1>
-                </div>
-                <nav class="menu">
-                    <!-- <a href="#">Contacto</a> -->
-                    <a href="Registro.html">Iniciar Sesion</a>
-                </nav>
-            </div>
-        </header>
-        <!-- menu  -->
-        <input type="checkbox" id="btn-menu">
-        <div class="container-menu">
-            <div class="cont-menu">
-                <nav>
-                    <a href="index.html">Inicio</a>
-                    <a href="mapa.html">Mapa</a>
-                    <a href="ruta.html">Ruta</a>
-                    <a href="mapas.html">Lista de mapas</a>
-                    <!-- <a href="#" onclick="fav()">Favoritos</a> -->
-                    <!-- <a href="#">?</a>
-                    <a href="#">?</a> -->
-                </nav>
-                <label for="btn-menu">✖️</label>
-            </div>
-        </div>
-    </div>
     <div class="contenido">
-        <div class="containerini" id="containerini">
-            <div class="form-container sign-up-container">
-                <form action="#">
-                    <h1 class="h1">Crear Cuenta</h1>
-                    <!-- <div class="social-container">
-                        <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-                        <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-                    </div> -->
-                    <!-- <span class="span">or use your email for registration</span> -->
-                    <section>
-                        <div class="form-group">
-                            <input class="input" type="text" placeholder="Usuario" />
-                            <label class="form-label">Usuario</label>
+        <div class="menu">
+            <div class="hero">
+                <nav class="nav container" id="nav">
+                    <h2 class="nav-logo">GABOW</h2>
+                    <ul class="nav-links">
+                        <li class="nav-item">
+                            <a href="index.html" class="nav-link">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="mapa.html" class="nav-link">Mapas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="ruta.html" class="nav-link">Ruta</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="favoritos.html" class="nav-link">Favoritos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Iniciar Sesion</a>
+                        </li>
+                    </ul>
+                    <a href="#nav" class="nav-ham">
+                        <img src="./assets/menu.svg" class="nav-icon">
+                    </a>
+                    <a href="#" class="nav-close">
+                        <img src="./assets/close.svg" class="nav-icon">
+                    </a>
+                </nav>
+                <div class="containerReg">
+                    <div class="containerini" id="containerini">
+                        <div class="form-container sign-up-container">
+                            <form action="#">
+                                <h1 class="h1">Crear Cuenta</h1>
+                                <!-- <div class="social-container">
+                                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                                </div> -->
+                                <!-- <span class="span">or use your email for registration</span> -->
+                                <section>
+                                    <div class="form-group">
+                                        <input class="input" type="text" placeholder="Usuario" />
+                                        <label class="form-label">Usuario</label>
+                                    </div>
+                                    <div class="form-group">
+                                        <input class="input" type="text" placeholder="Correo" />
+                                        <label class="form-label">Correo</label>
+                                    </div>
+                                    <div class="form-group">
+                                        <input class="input" type="text" placeholder="Contraseña" />
+                                        <label class="form-label">Contraseña</label>
+                                    </div>
+                                </section>
+                                <section class="asd">
+                                    <label><input type="checkbox"> He leido y acepto</label>
+                                    <a target="_blank" href="terminos.html" class="social">Terminos y Condicones</a>
+                                </section>
+                                <button class="button">Crear Cuenta</button>
+                            </form>
                         </div>
-                        <div class="form-group">
-                            <input class="input" type="text" placeholder="Correo" />
-                            <label class="form-label">Correo</label>
+                        <div class="form-container sign-in-container">
+                            <form action="#">
+                                <h1 class="h1">Iniciar Sesion</h1>
+                                <!-- <div class="social-container">
+                                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                                </div> -->
+                                <!-- <span class="span">or use your account</span> -->
+                                <section>
+                                    <div class="form-group">
+                                        <input class="input" type="text" placeholder="Correo" />
+                                        <label class="form-label">Correo</label>
+                                    </div>
+                                    <div class="form-group">
+                                        <input class="input" type="text" placeholder="Contraseña" />
+                                        <label class="form-label">Contraseña</label>
+                                    </div>
+                                </section>
+                                <a href="#" class="social">Olvidaste tu contraseña?</a>
+                                <button class="button">Iniciar Sesion</button>
+                            </form>
                         </div>
-                        <div class="form-group">
-                            <input class="input" type="text" placeholder="Contraseña" />
-                            <label class="form-label">Contraseña</label>
+                        <div class="overlay-container">
+                            <div class="overlay">
+                                <div class="overlay-panel overlay-left">
+                                    <h1 class="h1">Bienvenido!</h1>
+                                    <p class="p">Para mantenerse conectado con nosotros, inicie sesión con su información personal</p>
+                                    <button class="ghost" id="signIn">Iniciar Sesion</button>
+                                </div>
+                                <div class="overlay-panel overlay-right">
+                                    <h1 class="h1">Hola!</h1>
+                                    <p class="p">Ingresa tus datos personales y comienza tu viaje con nosotros</p>
+                                    <button class="ghost" id="signUp">Crear Cuenta</button>
+                                </div>
+                            </div>
                         </div>
-                    </section>
-                    <input type="checkbox">Acepto y he leido<a href="#">Terminos y Condicones</a>
-                    <button class="button">Crear Cuenta</button>
-                </form>
-            </div>
-            <div class="form-container sign-in-container">
-                <form action="#">
-                    <h1 class="h1">Iniciar Sesion</h1>
-                    <!-- <div class="social-container">
-                        <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-                        <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-                    </div> -->
-                    <!-- <span class="span">or use your account</span> -->
-                    <section>
-                        <div class="form-group">
-                            <input class="input" type="text" placeholder="Correo" />
-                            <label class="form-label">Correo</label>
-                        </div>
-                        <div class="form-group">
-                            <input class="input" type="text" placeholder="Contraseña" />
-                            <label class="form-label">Contraseña</label>
-                        </div>
-                    </section>
-                    <a href="#" class="social">Forgot your password?</a>
-                    <button class="button">Iniciar Sesion</button>
-                </form>
-            </div>
-            <div class="overlay-container">
-                <div class="overlay">
-                    <div class="overlay-panel overlay-left">
-                        <h1 class="h1">Bienvenido!</h1>
-                        <p class="p">Para mantenerse conectado con nosotros, inicie sesión con su información personal</p>
-                        <button class="ghost" id="signIn">Iniciar Sesion</button>
                     </div>
-                    <div class="overlay-panel overlay-right">
-                        <h1 class="h1">Hola!</h1>
-                        <p class="p">Ingresa tus datos personales y comienza tu viaje con nosotros</p>
-                        <button class="ghost" id="signUp">Crear Cuenta</button>
+                </div>
+                <div class="pies">
+            <footer>
+                <div class="footer">
+                    <div class="row">
+                        <a target="_blank" href="prox.html"><i class="fa fa-facebook"></i></a>
+                        <a target="_blank" href="prox.html"><i class="fa fa-instagram"></i></a>
+                        <a target="_blank" href="prox.html"><i class="fa fa-twitter"></i></a>
                     </div>
+        
+                    <div class="row">
+                        <ul>
+                            <li><a href="contacto.html">Contactanos</a></li>
+                            <li><a href="terminos.html">Terminos y Condiciones</a></li>
+                        </ul>
+                    </div>
+        
+                    <div class="row">
+                        GABOW Copyright © 2022 - All rights reserved || Designed By: Moises
+                    </div>
+                </div>
+            </footer>
                 </div>
             </div>
         </div>
+        <div class="animacion">
+            <div class="animation-area">
+                <ul class="box-area">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+        </div>
     </div>
-    <div class="pies">
-        <footer>
-            <label>TERMINO Y CONDICIONES</label>
-        </footer>
-    </div>
-    <iframe class="ifanima" src="animacion.html" frameborder="0"></iframe>
     <script src="js/funciones.js"></script>
 </body>
 </html>

@@ -1,0 +1,22 @@
+table{
+    text-align: center;
+    width: 50vw;
+    height: 50vh;
+    /* background: linear-gradient(to right, #0b5d69, #0b6942); */
+    border-radius: 10px;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+.impar a{
+    text-decoration: none;
+}
+.par a{
+    text-decoration: none;
+}
+.impar{
+    background-color: white;
+    color: black
+}
+.par{
+    background-color: gray;
+    color: white;
+}

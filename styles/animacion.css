@@ -5,6 +5,7 @@
 .animation-area {
 	background: linear-gradient(to right, #159957, #155799);
 	width: 100%;
+	min-height: 100px;
 	height: 100vh;
 }
 .box-area {
