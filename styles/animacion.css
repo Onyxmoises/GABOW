@@ -6,14 +6,14 @@
 	background: linear-gradient(to right, #159957, #155799);
 	width: 100%;
 	min-height: 100px;
-	height: 100vh;
+	height: 100%;
 }
 .box-area {
 	position: absolute;
 	top: 0;
 	left: 0;
 	width: 100%;
-	height: 100%;
+	height: 100vh;
 	overflow: hidden;
 }
 .box-area li {

@@ -10,6 +10,9 @@
 *{
     font-family: 'Montserrat Alternates', sans-serif;
 }
+.hero{
+    height: 100%;
+}
 .contenido{
     display: grid;
     grid-template-columns: 1;
@@ -41,6 +44,8 @@
     z-index: 2;
 }
 .containerReg{
+    /* width: 500px; */
+    box-sizing: content-box;
     display: grid;
     margin: 2%;
     justify-content: center;
