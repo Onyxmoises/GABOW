@@ -5,91 +5,45 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/style.css">
-
-    <!--FONT AWESOME-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+     <!--FONT AWESOME-->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
-    <!--GOOGLE FONTS-->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Play&display=swap" rel="stylesheet">
-
-    <title>GABOW</title>
+     <!--GOOGLE FONTS-->
+     <link rel="preconnect" href="https://fonts.gstatic.com">
+     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Play&display=swap" rel="stylesheet">
+ 
+    <title>Document</title>
 </head>
 <body>
     <div class="contenido">
         <div class="menu">
-            <div class="hero">
+            <div class="conta mt-3" id="mainContent">
+                <button class="aparecer" id="divContent">
+                    <h1 class="display-1">Gabow</h1>
+                    <p>¡Comencemos!</p>
+                </button>
+            </div>
+            <div class="hero" id="hero">
                 <nav class="nav container" id="nav">
-                    <h2 class="nav-logo">GABOW</h2>
-                    <ul class="nav-links">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">Inicio</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="mapa.html" class="nav-link">Mapas</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="ruta.html" class="nav-link">Ruta</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="favoritos.html" class="nav-link">Favoritos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="registro.html" class="nav-link">Iniciar Sesion</a>
-                        </li>
-                    </ul>
-                    <a href="#nav" class="nav-ham">
-                        <img src="./assets/menu.svg" class="nav-icon">
-                    </a>
-                    <a href="#" class="nav-close">
-                        <img src="./assets/close.svg" class="nav-icon">
-                    </a>
+
                 </nav>
-                <div class="containerIni">
-                    <div class="jumbotron">
-                        <h1>Bienvenido a Gabow</h1>      
-                    </div>
-                    <h1>¿Que es?</h1>
-                    <div class="well well-lg">
-                        <p>Gabow es una asistente virtual que digitaliza interiores de estructuras grandes y concurridas para tener un mapa virtual. Este permitirá la creación de rutas dentro de las instalaciones y la consulta de los espacios físicos. Una ventaja para el personal de trabajo dentro de las instalaciones por la gestión de espacios, seguridad y planeación estratégica en caso de siniestros.</p>
-                        <img src="img/logo.jpg" class="img-rounded" alt="Cinque Terre" width="304" height="236"> 
+                <div class="containerIni" id="containerIni">
+                    <div id="content"></div>
+                    <div class="container mt-5">
+                        <div id="content2"></div>
                     </div>
                 </div>
-                <div class="pies">
-            <footer>
-                <div class="footer">
-                    <div class="row">
-                        <a target="_blank" href="prox.html"><i class="fa fa-facebook"></i></a>
-                        <a target="_blank" href="prox.html"><i class="fa fa-instagram"></i></a>
-                        <a target="_blank" href="prox.html"><i class="fa fa-twitter"></i></a>
-                    </div>
-        
-                    <div class="row">
-                        <ul>
-                            <li><a href="contacto.html">Contactanos</a></li>
-                            <li><a href="terminos.html">Terminos y Condiciones</a></li>
-                        </ul>
-                    </div>
-                    <div class="row">
-                        GABOW Copyright © 2022 - All rights reserved || Designed By: Moises
-                    </div>
-                </div>
-            </footer>
+                <div class="pies" id="pies">
+
                 </div>
             </div>
         </div>
         <div class="animacion">
-            <div class="animation-area">
-                <ul class="box-area">
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                </ul>
-            </div>
+            <div class="bg"></div>
+            <div class="bg bg2"></div>
+            <div class="bg bg3"></div>
         </div>
     </div>
+    <script src="js/fun.js"></script>
 </body>
 </html>
